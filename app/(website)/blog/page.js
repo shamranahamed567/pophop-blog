@@ -5,12 +5,19 @@ import Link from "next/link";
 
 export default async function IndexPage() {
   const posts = await getAllPosts();
+
+  const filteredPosts = posts.filter(post => 
+    post.categories.some(category => 
+      category.title.toLowerCase() === 'blog'
+    )
+  );
+
   return (
     <>
-      {posts && (
-        <Container>
+      {filteredPosts && (
+        <section className="py-5 px-6 sm:py-8 sm:max-w-278.5 sm:mx-auto sm:px-0">
           <div className="grid gap-10 md:grid-cols-2 lg:gap-10 ">
-            {posts.slice(0, 2).map(post => (
+            {filteredPosts.slice(0, 2).map(post => (
               <PostList
                 key={post._id}
                 post={post}
@@ -20,7 +27,7 @@ export default async function IndexPage() {
             ))}
           </div>
           <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 ">
-            {posts.slice(2, 14).map(post => (
+            {filteredPosts.slice(2, 14).map(post => (
               <PostList key={post._id} post={post} aspect="square" />
             ))}
           </div>
@@ -31,10 +38,10 @@ export default async function IndexPage() {
               <span>View all Posts</span>
             </Link>
           </div>
-        </Container>
+        </section>
       )}
     </>
   );
 }
 
-// export const revalidate = 60;
+export const revalidate = 60;

@@ -5,4 +5,4 @@ export default function IndexPage() {
   return(<HomePage/>)
 }
 
-// export const revalidate = 60;
+export const revalidate = 60;

@@ -28,7 +28,7 @@ export default function Post(props) {
 
   return (
     <>
-      <article className="!pt-0 max-w-278.5 mx-auto px-6 sm:px-0">
+      <section className="max-w-278.5 mx-auto px-6 sm:px-0">
         <div>
           <div className="flex justify-start">
             <CategoryLabel categories={post.categories} />
@@ -74,9 +74,9 @@ export default function Post(props) {
             </div>
           </div>
         </div>
-      </article>
+      </section>
 
-      <div className="relative z-0 aspect-video max-w-screen-lg overflow-hidden mt-5 !rounded-lg mx-6 sm:mx-auto">
+      <div className="relative z-0 aspect-video max-w-screen-lg overflow-hidden mt-5 rounded-lg mx-6 sm:mx-auto">
         {imageProps && (
           <Image
             src={imageProps.src}
