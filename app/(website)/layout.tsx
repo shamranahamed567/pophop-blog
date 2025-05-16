@@ -55,7 +55,7 @@ export default async function Layout({ children, params }) {
 
       <div>{children}</div>
 
-      <Footer {...settings} />
+      {/* <Footer {...settings} /> */}
     </>
   );
 }
