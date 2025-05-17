@@ -16,6 +16,7 @@
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.17",
     "@portabletext/react": "^2.0.2",
+    "@radix-ui/react-dialog": "^1.1.13",
     "@radix-ui/react-slot": "^1.2.2",
     "@sanity/code-input": "^4.1.0",
     "@sanity/icons": "^2.2.2",
@@ -49,7 +50,8 @@
     "swr": "^2.1.2",
     "tailwind-merge": "^3.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "vaul": "^1.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
