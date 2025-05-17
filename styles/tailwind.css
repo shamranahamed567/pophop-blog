@@ -11,6 +11,13 @@
 /*---break--- */
 
 @font-face {
+  font-family: 'BonVivantSerif';
+  src: url('/fonts/BonVivantSerif.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'GeistRegular';
   src: url('/fonts/GeistRegular.ttf') format('truetype');
   font-weight: normal;

@@ -1,46 +1,35 @@
+import Image from "next/image";
+
 import { getAllPosts } from "@/lib/sanity/client";
-import Container from "@/components/container";
-import PostList from "@/components/postlist";
-import Link from "next/link";
+
+import changeLogGrid from '../../../public/img/changelog-grid.svg'
+import changeLogGridMobile from '../../../public/img/grid-mob.svg'
+import BlogPosts from "@/components/BlogPosts";
+
+const notAllowedCategories = ["company", "people", "engineering", "design", "success", "marketing", "changelog"];
 
 export default async function IndexPage() {
   const posts = await getAllPosts();
 
   const filteredPosts = posts.filter(post => 
-    post.categories.some(category => 
-      category.title.toLowerCase() === 'blog'
-    )
+    !post.categories.some(c => notAllowedCategories.includes(c.title.toLowerCase()))
   );
 
+  const uniqueCategories = [...new Set(
+    filteredPosts.flatMap(post => 
+      post.categories.map(category => category.title.toLowerCase())
+    )
+  )];
+
   return (
-    <>
-      {filteredPosts && (
-        <section className="py-5 px-6 sm:py-8 sm:max-w-278.5 sm:mx-auto sm:px-0">
-          <div className="grid gap-10 md:grid-cols-2 lg:gap-10 ">
-            {filteredPosts.slice(0, 2).map(post => (
-              <PostList
-                key={post._id}
-                post={post}
-                aspect="landscape"
-                preloadImage={true}
-              />
-            ))}
-          </div>
-          <div className="mt-10 grid gap-10 md:grid-cols-2 lg:gap-10 xl:grid-cols-3 ">
-            {filteredPosts.slice(2, 14).map(post => (
-              <PostList key={post._id} post={post} aspect="square" />
-            ))}
-          </div>
-          <div className="mt-10 flex justify-center">
-            <Link
-              href="/all-post"
-              className="relative inline-flex items-center gap-1 rounded-md border border-gray-300 bg-white px-3 py-2 pl-4 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20 disabled:pointer-events-none disabled:opacity-40 dark:border-gray-500 dark:bg-gray-800 dark:text-gray-300">
-              <span>View all Posts</span>
-            </Link>
-          </div>
-        </section>
-      )}
-    </>
+    <article className="relative">
+      <div className="overflow-hidden">
+        <Image src={changeLogGrid} alt="Changelog grid image" className="w-full hidden sm:block pointer-events-none z-0" style={{marginTop: "-68px"}} />
+        <Image src={changeLogGridMobile} alt="Changelog grid image" className="w-full block sm:hidden z-0 pointer-events-none" style={{marginTop: "-76px"}} />
+      </div>
+
+      <BlogPosts filteredPosts={filteredPosts} uniqueCategories={['All', ...uniqueCategories]} />
+    </article>
   );
 }
 

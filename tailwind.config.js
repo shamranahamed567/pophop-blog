@@ -58,6 +58,16 @@ module.exports = {
 				"muted-foreg": "#64748B",
 			  "error-bg": "#FFFFFFF5",
 				"card-foreground": "#020617",
+				"blog-btn": "#FAFAFA",
+				"blog-not": "#EDEEF4",
+				"btn-text": "#18181B",
+				"blog-time": "#09090BBF",
+				"blog-bd": "#F3EBFF",
+				"mob-dialog": "#19101033",
+				"com-tab": "#F9FAFB",
+				"type-text": "#09090B",
+				"menu-btn": "#E4E4E7",
+				"future-card": "#F6F6F64D"
   		},
   		fontFamily: {
   			sans: [
@@ -73,7 +83,8 @@ module.exports = {
   			],
         geistMedium: ['GeistMedium'],
         geistSemiBold: ['GeistSemiBold'],
-        geistRegular: ['GeistRegular']
+        geistRegular: ['GeistRegular'],
+				bonVivantSerif: ['BonVivantSerif'],
   		},
 			fontSize: {
         '20': '5rem',
@@ -116,14 +127,19 @@ module.exports = {
       },
 			spacing: {
 				'7': '1.75rem',
+				'5.25': '1.313rem',
 				'5.5': '1.375rem',
 				'17': '4.25rem',
 				'108.5': '27.125rem',
+				'15': '3.75rem',
+				'18.5': '4.625rem',
+				'69': '17.25rem',
 			},
 			backgroundImage: {
 				'gradient-text': 'linear-gradient(69deg, #B759FF 37.47%, #FF5E96 54.81%, #FFB65B 66.46%)',
 			},
 			backdropBlur: {
+				follow: "2px",
         '48': '12rem',
       },
   	}
